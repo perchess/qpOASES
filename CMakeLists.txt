@@ -34,7 +34,7 @@ set(SRCS
   src/Flipper.cpp
   src/LAPACKReplacement.cpp
   src/MessageHandling.cpp
-  src/OQPinterface.cpp 
+  src/OQPinterface.cpp
   src/QProblem.cpp
   src/SQProblem.cpp
   src/Utils.cpp)
@@ -59,7 +59,7 @@ set(EXAMPLES
   example5
   exampleLP
   qrecipe)
- 
+
 foreach(EXAMPLE ${EXAMPLES})
   add_executable(${EXAMPLE} examples/${EXAMPLE}.cpp)
   target_link_libraries(${EXAMPLE} ${PROJECT_NAME})
@@ -85,7 +85,7 @@ add_custom_command(OUTPUT ${qpOASES_SRC} ${qpOASES_PYTHON_SRC}
 
 # Custom build Python wrappers
 add_custom_target(qpOASES_Python ALL
-  COMMAND python setup.py build_ext --include-dirs include ${INCLUDE_DIRECTORIES} --build-lib ${CATKIN_DEVEL_PREFIX}/${CATKIN_GLOBAL_PYTHON_DESTINATION} --build-temp ${CMAKE_CURRENT_BINARY_DIR} --sources ${qpOASES_PYTHON_SRC} ${SRCS}
+  COMMAND python3 setup.py build_ext --include-dirs include ${INCLUDE_DIRECTORIES} --build-lib ${CATKIN_DEVEL_PREFIX}/${CATKIN_GLOBAL_PYTHON_DESTINATION} --build-temp ${CMAKE_CURRENT_BINARY_DIR} --sources ${qpOASES_PYTHON_SRC} ${SRCS}
   WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
   DEPENDS ${PROJECT_NAME}
   COMMENT "Building Python wrappers."
